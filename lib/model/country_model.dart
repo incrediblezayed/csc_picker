@@ -4339,7 +4339,7 @@ class CountryModel {
       'name': name,
       'emoji': emoji,
       'emojiU': emojiU,
-      'state': state?.map((x) => x.toMap())?.toList(),
+      'state': state.map((x) => x.toMap()).toList(),
     };
   }
 
@@ -4349,7 +4349,8 @@ class CountryModel {
       name: map['name'],
       emoji: map['emoji'],
       emojiU: map['emojiU'],
-      state: List<StateModel>.from(map['state']?.map((x) => StateModel.fromMap(x))),
+      state: List<StateModel>.from(
+          map['state']?.map((x) => StateModel.fromMap(x))),
     );
   }
 
@@ -4416,7 +4417,7 @@ class StateModel {
       'id': id,
       'name': name,
       'country_id': country_id,
-      'city': city?.map((x) => x.toMap())?.toList(),
+      'city': city.map((x) => x.toMap()).toList(),
     };
   }
 
@@ -4431,7 +4432,8 @@ class StateModel {
 
   String toJson() => json.encode(toMap());
 
-  factory StateModel.fromJson(String source) => StateModel.fromMap(json.decode(source));
+  factory StateModel.fromJson(String source) =>
+      StateModel.fromMap(json.decode(source));
 
   @override
   String toString() {
